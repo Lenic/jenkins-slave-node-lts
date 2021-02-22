@@ -7,6 +7,7 @@ RUN apk update --no-cache \
     git \
     curl \
     vim \
+    python2 \
     && npm i -g npm \
     && npm i -g yarn
 
