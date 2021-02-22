@@ -2,7 +2,7 @@ FROM jenkins/ssh-agent:alpine
 
 RUN apk update --no-cache \
     && apk add --no-cache \
-    nodejs \
+    nodejs-current \
     npm \
     git \
     curl \
