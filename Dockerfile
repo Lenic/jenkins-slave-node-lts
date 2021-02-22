@@ -3,7 +3,8 @@ FROM jenkins/ssh-agent:alpine
 RUN sed -i /etc/ssh/sshd_config \
         -e 's/PermitRootLogin.*/PermitRootLogin yes/' \
         -e 's/PasswordAuthentication.*/PasswordAuthentication yes/' \
-    && echo "root:admin" | chpasswd
+    && echo "root:admin" | chpasswd \
+    && ln -sf /opt/java/openjdk /usr/local/java
 
 RUN apk update --no-cache \
     && apk add --no-cache \
