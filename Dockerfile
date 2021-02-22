@@ -1,5 +1,10 @@
 FROM jenkins/ssh-agent:alpine
 
+RUN sed -i /etc/ssh/sshd_config \
+        -e 's/#PermitRootLogin.*/PermitRootLogin yes/' \
+        -e 's/#PasswordAuthentication.*/PasswordAuthentication yes/' \
+    && echo "root:admin" | chpasswd
+
 RUN apk update --no-cache \
     && apk add --no-cache \
     nodejs-current \
